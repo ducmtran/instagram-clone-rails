@@ -1,24 +1,20 @@
-# README
+# Instagram Clone with Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+For practicing writing Rails
 
-Things you may want to cover:
+* Ruby version 2.3.3
+* Rails 5.2
+* Gems: devise, acts_as_follower
 
-* Ruby version
+Current features
+----
+* Account creation, login
+* Edit profile
+* View, create, remove your own post
+* Following
 
-* System dependencies
+Future features
+----
+* Comment, likes
+* View other's profile/post
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
