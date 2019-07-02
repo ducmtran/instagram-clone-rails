@@ -9,7 +9,24 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <%= link_to :home do %>
+      <div class="navbar-brand">InstagramClone</div>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= current_user.email %>
+      <%= current_user.id %>
+    <% end %>
+    </div>
+  </nav>
+
   <body class="bg-light">
-    <%= yield %>
+    <div class="row">
+      <div class="col-lg-2 col-1"></div>
+      <div class="col-lg-8 col-10">
+        <%= yield %>
+      </div>
+      <div class="col-lg-2 col-1"></div>
+    </div>
   </body>
 </html>

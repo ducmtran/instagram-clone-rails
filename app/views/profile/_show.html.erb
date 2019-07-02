@@ -1,0 +1,18 @@
+
+<div class="row" id="profile">
+  <div class="col-lg-3">
+    <img class="img img-fluid" src="f87.jpg" alt="">
+  </div>
+  <div class="col-lg-9">
+      <div id="handle">
+        @<%= @profile.handle %>
+      </div>
+      <%= @profile.name %>
+      <br>
+      <%= @profile.bio %>
+      <br>
+      <%= link_to profile_edit_path(), method: :get do %>
+        <div>Update</div>
+      <% end %>
+  </div>
+</div>

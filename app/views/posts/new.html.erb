@@ -1,0 +1,23 @@
+<div class="container">
+<div>
+  <%= render 'shared/error_message' %>
+  <% if @user == nil %>
+    <div>hello</div>
+  <% end %>
+  <% if @user != nil and @user.errors.any? %>
+    <% @user.errors.full_messages.each do |m| %>
+      <%= m %>
+      <div>hello</div>
+    <% end %>
+  <% end %>
+</div>
+<%= form_for :new_post, url: posts_path do |f| %>  
+  <div class="field">
+    <%= f.text_area :caption, placeholder: true, class: 'form-control' %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Post', class: 'btn btn-primary'%>
+  </div>
+<% end %>
+
+</div>

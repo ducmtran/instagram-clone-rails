@@ -1,0 +1,24 @@
+<div class="container">
+  <div>Follow</div>
+    <% @followings.each do |f| %>
+      <div>
+        <%= f.email %>
+        <% if f.profile != nil %>
+          <%= f.profile.bio %>
+        <% end %>
+        <%= link_to unfollow_path(f.id), method: :delete do %>
+          <div>Unfollow</div>
+        <% end %>
+      </div>
+    <% end %>
+  <br>
+  <div>All users</div>
+  <% @all_users.each do |user| %>
+    <div>
+      <%= user.email %>
+      <%= link_to follow_path(user.id), method: :post do %>
+        <div>Follow</div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
