@@ -1,16 +1,18 @@
 <h1>Update profile</h1>
 <%# form_for 'variable return in profile#edit' auto-fill fields %>
-<%= form_for :profile, url: profile_update_path(), method: :patch do |f| %>
-  <div class="field">
-    <%= f.text_field :handle, class: 'form-control' %>
-  </div>
-  <div class="field">
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-  <div class="field">
-    <%= f.text_field :bio, class: 'form-control' %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Update', class: 'btn btn-primary'%>
-  </div>
-<% end %>
+<div class="container">
+  <%= form_for :profile, url: profile_update_path(), method: :patch do |f| %>
+    <div class="field">
+      <%= f.text_field :handle, class: 'form-control' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :bio, class: 'form-control' %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Update', class: 'btn btn-primary'%>
+    </div>
+  <% end %>
+</div>

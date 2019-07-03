@@ -12,9 +12,13 @@ Current features
 * Edit profile
 * View, create, remove your own post
 * Following
+* View other's post
 
 Future features
 ----
 * Comment, likes
-* View other's profile/post
+* Tests
+* Actual photo upload (instead of Dicaprio placeholder:)
+* Deploy on Heroku
+* Rewrite some features with Ajax
 

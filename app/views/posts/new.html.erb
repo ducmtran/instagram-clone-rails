@@ -1,9 +1,5 @@
 <div class="container">
 <div>
-  <%= render 'shared/error_message' %>
-  <% if @user == nil %>
-    <div>hello</div>
-  <% end %>
   <% if @user != nil and @user.errors.any? %>
     <% @user.errors.full_messages.each do |m| %>
       <%= m %>

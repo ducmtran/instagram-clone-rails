@@ -22,7 +22,6 @@ a, a:hover {
 }
 
 #profile {
-    border: solid 1px;
     border-color: lightgray;
 }
 
@@ -32,4 +31,8 @@ a, a:hover {
 
 .container {
     margin-top: 10px;
+}
+
+.card-body {
+    padding: 0px 0px 0px 10px
 }

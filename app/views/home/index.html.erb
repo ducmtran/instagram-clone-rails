@@ -7,39 +7,52 @@
       <div class="btn btn-secondary">Log out</div>
   <% end %>
 
-  <%= link_to '/users', method: :get do %>
-      <div class="btn btn-secondary">View all users</div>
+  <%= link_to profile_path(), method: :get do %>
+      <div class="btn btn-secondary">Profile</div>
   <% end %>
 </div>
+
 <div class="container row">
-<div class="col-lg-6">
-  <% @all_posts.each do |p| %>
-  <div class="post rounded-sm bg-white">
-      <div class="image">
-        <img class="img img-fluid" src="f87.jpg" alt="">
-      </div>
-      <div class="row post-date ml-0 mr-0">
-        <div class="col-7">
-          <%= link_to edit_post_path(p.id), method: :get do %>
-            edit
-          <% end %>
+<div class="col-lg-8">
+  <%# Show following posts here %>
+  <% @posts.each do |p| %>
+    <div class="card post rounded-sm bg-white">
+          <img class="card-img-top" src="f87.jpg" alt="">
+        <div class="card-body row post-date ml-0 mr-0">
+          <div class="col-7">
+            <%= link_to edit_post_path(p.id), method: :get do %>
+              edit
+            <% end %>
 
-          <%= link_to post_path(p.id), method: :delete do %>
-            delete
-          <% end %>
+            <%= link_to post_path(p.id), method: :delete do %>
+              delete
+            <% end %>
+          </div>
+          <div class="col-5 text-right">
+            <% if p.created_at != nil %>
+              <%= distance_of_time_in_words_to_now(p.created_at) %> ago
+            <% end %>
+          </div>
         </div>
-        <div class="col-5 text-right">
-          <% if p.created_at != nil %>
-            <%= distance_of_time_in_words_to_now(p.created_at) %> ago
-          <% end %>
-        </div>
-      </div>
-      <div class="container-fluid"><%= p.caption %></div>
-  </div>
-  <% end %>
+        <div class="container-fluid"><%= p.caption %></div>
+    </div>
+    <% end %>
 </div>
 
-<div class="col-lg-6">
-  <%= render "profile/show" %>
+<div class="col-lg-4">
+  <div class="card">
+    <div class="row no-gutters">
+      <div class="col-3">
+        <img class="card-img" src="f87.jpg" alt="">
+      </div>
+      <div class="col-9">
+        <div class="card-body">
+          <h5 class="card-title"><%= @profile.handle %></h5>
+          <h6 class="card-subtitle font-weight-light"><%= @profile.name %></h6>
+          <div class="card-text"><%= @profile.bio %></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
