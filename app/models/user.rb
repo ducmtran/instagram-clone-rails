@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :posts
   has_one :profile
+
+  has_many :comments
   
   acts_as_followable
   acts_as_follower

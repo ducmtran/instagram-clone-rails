@@ -8,16 +8,16 @@ For practicing writing Rails
 
 Current features
 ----
-* Account creation, login
-* Edit profile
+* Account creation, login, profile
 * View, create, remove your own post
 * Following
-* View other's post
+* Home feed, comments
 
-Future features
+Future features (in no particular order)
 ----
-* Comment, likes
+* Likes
 * Tests
+* View others' profile
 * Actual photo upload (instead of Dicaprio placeholder:)
 * Deploy on Heroku
 * Rewrite some features with Ajax

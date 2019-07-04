@@ -16,11 +16,13 @@ class FollowsController < ApplicationController
     user = User.find(current_user.id)
     followed_user = User.find(params[:id])
     user.follow(followed_user)
+    redirect_to follows_path()
   end
 
   def destroy
     user = User.find(current_user.id)
     followed_user = User.find(params[:id])
     user.stop_following(followed_user)
+    redirect_to follows_path()
   end
 end

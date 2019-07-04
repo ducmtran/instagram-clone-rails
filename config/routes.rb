@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts, except: [:index]
+  resources :comments, only: [:create, :destroy, :show]
 
   # devise_scope: customize default routes
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -27,4 +28,5 @@ Rails.application.routes.draw do
   get '/follows', to: 'follows#show'
   post '/follow/:id', to: 'follows#create', as: 'follow'
   delete '/unfollow/:id', to: 'follows#destroy', as: 'unfollow'
+
 end

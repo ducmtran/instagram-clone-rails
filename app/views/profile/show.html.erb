@@ -12,7 +12,7 @@
     <% @all_posts.each do |p| %>
     <div class="card post rounded-sm bg-white">
           <img class="card-img-top" src="f87.jpg" alt="">
-        <div class="card-body row post-date ml-0 mr-0">
+        <div class="card-body row ml-0 mr-0">
           <div class="col-7">
             <%= link_to edit_post_path(p.id), method: :get do %>
               edit

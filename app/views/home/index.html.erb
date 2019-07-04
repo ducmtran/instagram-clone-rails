@@ -17,37 +17,49 @@
   <%# Show following posts here %>
   <% @posts.each do |p| %>
     <div class="card post rounded-sm bg-white">
-          <img class="card-img-top" src="f87.jpg" alt="">
-        <div class="card-body row post-date ml-0 mr-0">
-          <div class="col-7">
-            <%= link_to edit_post_path(p.id), method: :get do %>
-              edit
-            <% end %>
-
-            <%= link_to post_path(p.id), method: :delete do %>
-              delete
-            <% end %>
-          </div>
-          <div class="col-5 text-right">
-            <% if p.created_at != nil %>
-              <%= distance_of_time_in_words_to_now(p.created_at) %> ago
-            <% end %>
-          </div>
+      <div class="card-header">
+        <%= p.user.profile.handle %>
+      </div>
+      <img class="card-img-top" src="f87.jpg" alt="">
+      <div class="card-body border-bottom">
+          <div class="card-text">
+          <span class="font-weight-bold"><%= current_user.profile.handle %></span> <%= p.caption %>
         </div>
-        <div class="container-fluid"><%= p.caption %></div>
+        <div class="card-text">
+          <% p.comments.each do |c| %>
+            <div>
+              <span class="font-weight-bold"><%= c.user.profile.handle %></span> <%= c.text %>
+            </div>
+          <% end %>
+        </div>
+        <h6 class="mb-2 text-muted">
+          <% if p.created_at != nil %>
+            <%= distance_of_time_in_words_to_now(p.created_at) %> ago
+          <% end %>
+        </h6>
+      </div>
+      <%= form_for :comment, url: comments_path(), html: { class: 'input-group' } do |f| %>
+        <%= f.text_field :text, placeholder: 'Add a comment...', class: 'form-control border-0' %>
+        <%= hidden_field_tag :post_id, p.id %>
+        <%= f.submit 'Post', class: 'btn' %>
+      <% end %>
     </div>
-    <% end %>
+  <% end %>
 </div>
 
 <div class="col-lg-4">
   <div class="card">
     <div class="row no-gutters">
       <div class="col-3">
-        <img class="card-img" src="f87.jpg" alt="">
+        <%= link_to profile_path(current_user.id), method: :get do %>
+          <img class="card-img" src="f87.jpg" alt="">
+        <% end %>
       </div>
       <div class="col-9">
         <div class="card-body">
-          <h5 class="card-title"><%= @profile.handle %></h5>
+          <%= link_to profile_path(current_user.id), method: :get do %>
+            <h5 class="card-title text-decoration-none"><%= @profile.handle %></h5>
+          <% end %>
           <h6 class="card-subtitle font-weight-light"><%= @profile.name %></h6>
           <div class="card-text"><%= @profile.bio %></div>
         </div>

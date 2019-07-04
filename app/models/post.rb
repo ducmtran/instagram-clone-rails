@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
-  has_one :users
+  belongs_to :user
+  has_many :comments
   validates :caption, presence: true
 end
