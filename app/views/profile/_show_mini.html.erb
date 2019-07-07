@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="row no-gutters">
+      <div class="col-3">
+        <%= link_to view_profile_path(current_user.id), method: :get do %>
+          <img class="card-img" src="<%= profile_pic(@profile.handle) %>" alt="">
+        <% end %>
+      </div>
+      <div class="col-9">
+        <div class="card-body">
+          <%= link_to view_profile_path(current_user.id), method: :get do %>
+            <h5 class="card-title text-decoration-none"><%= @profile.handle %></h5>
+          <% end %>
+          <h6 class="card-subtitle font-weight-light"><%= @profile.name %></h6>
+          <div class="card-text"><%= @profile.bio %></div>
+        </div>
+      </div>
+    </div>
+  </div>

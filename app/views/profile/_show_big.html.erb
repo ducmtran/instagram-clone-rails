@@ -1,0 +1,25 @@
+  <div class="card">
+    <div class="row no-gutters">
+      <div class="col-3">
+        <img class="card-img" src='<%= profile_pic(@profile.handle) %>' alt="">
+      </div>
+      <div class="col-9">
+        <div class="card-body">
+          <h5 class="card-title text-decoration-none"><%= @profile.handle %></h5>
+          <h6 class="card-subtitle font-weight-light"><%= @profile.name %></h6>
+          <div class="card-text">
+            <%= link_to follows_path(@user.id), method: :get do %>
+            <span><%= @following_count %> following</span>
+            <span><%= @follower_count %> followers</span>
+            <% end %>
+          </div>
+          <div class="card-text"><%= @profile.bio %></div>
+          <% if @self %>
+            <%= link_to profile_edit_path(), method: :get do %>
+              <div class="btn btn-sm btn-outline-secondary">Update</div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

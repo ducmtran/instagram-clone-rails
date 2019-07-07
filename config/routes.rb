@@ -20,13 +20,17 @@ Rails.application.routes.draw do
   get '/about', to: 'welcome#about'
 
   #profile
-  get '/profile', to: 'profile#show'
+  get '/view/:id', to: 'profile#show', as: 'view_profile'
   get '/profile/edit', to: 'profile#edit'
   patch '/profile/update', to: 'profile#update'
-  
+
   #followings
-  get '/follows', to: 'follows#show'
+  get '/follows/:id', to: 'follows#show', as: 'follows'
   post '/follow/:id', to: 'follows#create', as: 'follow'
   delete '/unfollow/:id', to: 'follows#destroy', as: 'unfollow'
+
+  #likes
+  post '/like/:post_id', to: 'likes#create', as: 'like'
+  delete '/unlike/:post_id', to: 'likes#destroy', as: 'unlike'
 
 end

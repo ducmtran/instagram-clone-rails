@@ -1,5 +1,5 @@
 <div class="container">
-  <%= link_to profile_path(current_user.id), method: :get do %>
+  <%= link_to view_profile_path(current_user.id), method: :get do %>
     <div class="btn btn-sm btn-secondary">Back to profile</div>
   <% end %>
   <div>Following</div>

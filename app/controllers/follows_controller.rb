@@ -3,7 +3,7 @@ class FollowsController < ApplicationController
 
   def show
     @all_users = User.all
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
 
     @following_count = @user.follow_count 
     @follower_count = @user.followers_count

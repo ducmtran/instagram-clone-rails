@@ -1,0 +1,3 @@
+<% if @like.save %>
+  $('#like-<%= @like.post_id %>').html('<%= link_to unlike_path(), method: :delete, remote: true do %>unlike<% end %>');
+<% end %>

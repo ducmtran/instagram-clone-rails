@@ -1,0 +1,5 @@
+<% if Like.find_by(post_id: post_id).nil? %>
+  <%= link_to like_path(post_id), method: :post, remote: true do %>like<% end %>
+<% else %>
+  <%= link_to unlike_path(post_id), method: :delete, remote: true do %>unlike<% end %>
+<% end %>

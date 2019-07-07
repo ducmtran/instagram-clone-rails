@@ -7,7 +7,7 @@
       <div class="btn btn-secondary">Log out</div>
   <% end %>
 
-  <%= link_to profile_path(), method: :get do %>
+  <%= link_to view_profile_path(current_user.id), method: :get do %>
       <div class="btn btn-secondary">Profile</div>
   <% end %>
 </div>
@@ -20,9 +20,14 @@
       <div class="card-header">
         <%= p.user.profile.handle %>
       </div>
-      <img class="card-img-top" src="f87.jpg" alt="">
+      <img class="card-img-top" src="/f87.jpg" alt="">
       <div class="card-body border-bottom">
-          <div class="card-text">
+        <div class="card-text">
+          <div id="like-<%= p.id %>">
+            <%= render 'likes/like_button.html.erb', post_id: p.id %>
+          </div>
+        </div>
+        <div class="card-text">
           <span class="font-weight-bold"><%= current_user.profile.handle %></span> <%= p.caption %>
         </div>
         <div class="card-text">
@@ -48,23 +53,6 @@
 </div>
 
 <div class="col-lg-4">
-  <div class="card">
-    <div class="row no-gutters">
-      <div class="col-3">
-        <%= link_to profile_path(current_user.id), method: :get do %>
-          <img class="card-img" src="f87.jpg" alt="">
-        <% end %>
-      </div>
-      <div class="col-9">
-        <div class="card-body">
-          <%= link_to profile_path(current_user.id), method: :get do %>
-            <h5 class="card-title text-decoration-none"><%= @profile.handle %></h5>
-          <% end %>
-          <h6 class="card-subtitle font-weight-light"><%= @profile.name %></h6>
-          <div class="card-text"><%= @profile.bio %></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render 'profile/show_mini' %>
 </div>
 </div>
