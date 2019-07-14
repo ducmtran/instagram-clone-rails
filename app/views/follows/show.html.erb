@@ -23,12 +23,16 @@
   </div>
   <br>
   <div>All users</div>
-  <% @all_users.each do |user| %>
-    <div>
-      <%= user.email %>
-      <%= link_to follow_path(user.id), method: :post do %>
-        <div>Follow</div>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="list-group">
+    <% @all_users.each do |user| %>
+      <li class="list-group-item">
+        <%= link_to view_profile_path(user.id), method: :get do %>
+          <div><%= user.profile.name %></div>
+        <% end %>
+        <%= link_to follow_path(user.id), method: :post do %>
+          <div class="btn btn-sm btn-secondary">Follow</div>
+        <% end %>
+      </li>
+    <% end %>
+  </div>
 </div>

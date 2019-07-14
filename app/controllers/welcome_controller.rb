@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @name = :dan
+    puts response.status
   end
 
   def about

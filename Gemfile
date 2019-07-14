@@ -38,7 +38,14 @@ gem 'bootsnap', '=1.4.1', require: false
 # Follower/Following gem
 gem "acts_as_follower", github: "tcocca/acts_as_follower"
 
+# Devise gem for authentication
 gem 'devise'
+
+# Populate and faker to generate seed data
+# Use fixed populate
+gem 'faker', '~> 1.9', '>= 1.9.6'
+gem 'populator', :github=>'fulvi0/populator'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/fulvi0/populator.git
+  revision: cad8067b580f7e84fb3dcd4dabc3e95f6c4519ee
+  specs:
+    populator (1.0.0)
+
+GIT
   remote: https://github.com/tcocca/acts_as_follower.git
   revision: c5ac7b9601c4af01eb4d9112330b27be4d694ecc
   specs:
@@ -91,6 +97,8 @@ GEM
     duktape (2.3.0.0)
     erubi (1.8.0)
     execjs (2.7.0)
+    faker (1.9.6)
+      i18n (>= 0.7)
     ffi (1.11.1-x64-mingw32)
     ffi (1.11.1-x86-mingw32)
     globalid (0.4.2)
@@ -219,8 +227,10 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   duktape
+  faker (~> 1.9, >= 1.9.6)
   jbuilder (~> 2.5)
   pg (>= 0.18, < 2.0)
+  populator!
   puma (~> 3.11)
   rails (~> 5.2.3)
   sass-rails (~> 5.0)

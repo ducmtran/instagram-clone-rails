@@ -4,8 +4,10 @@
         <h2>About</h2>
     <% end %>
     
+    <% if !flash[:alert].nil? %>
+      <div class="alert alert-danger"><%= flash[:alert] %></div>
+    <% end %>
     <%= render 'devise/sessions/new' %>
-  <div><%= alert %></div>
     <br>
 
     <%= link_to :new_user_registration do %>

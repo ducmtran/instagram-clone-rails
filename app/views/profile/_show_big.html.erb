@@ -14,7 +14,7 @@
             <% end %>
           </div>
           <div class="card-text"><%= @profile.bio %></div>
-          <% if @self %>
+          <% if self_profile(params[:id]) %>
             <%= link_to profile_edit_path(), method: :get do %>
               <div class="btn btn-sm btn-outline-secondary">Update</div>
             <% end %>
