@@ -1,0 +1,4 @@
+<% if @comment.save %>
+  $('#comment-<%= @comment.post_id %>').append('<div><span class="font-weight-bold"><%= current_user.profile.handle %></span> <%= @comment.text %></div>');
+  
+<% end %>

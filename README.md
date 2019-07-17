@@ -6,6 +6,7 @@ For practicing writing application with Rails
 * Rails 5.2
 * Gems: devise, acts_as_follower, populator, faker
 * Profile picture by [Robohash](https://robohash.org/)
+* Instagrm logo placeholder from [Freebie Supply](https://freebiesupply.com/logos/instagram-logo/)
 
 Current
 ----
@@ -19,5 +20,5 @@ Current
 Future (in no particular order)
 ----
 * Tests
-* Actual photo upload (instead of Dicaprio placeholder:)
+* Actual photo upload
 * Rewrite some features with Ajax

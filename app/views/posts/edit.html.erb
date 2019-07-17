@@ -1,4 +1,10 @@
-<%= form_for :post, url: post_path(@post.id), method: :put do |f| %>
+<div class="container">
+<% if @post.errors.any? %>
+  <% @post.errors.full_messages.each do |msg| %>
+    <div class="alert alert-warning"><%= msg %></div>
+  <% end %>
+<% end %>
+<%= form_for @post, url: post_path(@post), method: :patch do |f| %>
   <div class="field">
     <%= f.text_area :caption, class: 'form-control' %>
   </div>
@@ -6,3 +12,4 @@
     <%= f.submit "Update", class: 'btn btn-primary' %>
   </div>
 <% end %>
+</div>

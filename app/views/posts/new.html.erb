@@ -1,12 +1,9 @@
 <div class="container">
-<div>
-  <% if @user != nil and @user.errors.any? %>
-    <% @user.errors.full_messages.each do |m| %>
-      <%= m %>
-      <div>hello</div>
-    <% end %>
+<% if !@errors.nil? %>
+  <% @errors.each do |msg| %>
+    <div class="alert alert-warning"><%= msg %></div>
   <% end %>
-</div>
+<% end %>
 <%= form_for :new_post, url: posts_path do |f| %>  
   <div class="field">
     <%= f.text_area :caption, placeholder: true, class: 'form-control' %>

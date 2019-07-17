@@ -1,0 +1,13 @@
+  <div>All users</div>
+  <div class="list-group">
+    <% @all_users.each do |user| %>
+      <li class="list-group-item">
+        <%= link_to view_profile_path(user.id), method: :get do %>
+          <span><%= user.profile.name %></span>
+        <% end %>
+        <% if current_user.following?(user) %>
+          <span><div class="btn btn-sm btn-secondary">Following</div></span>
+        <% end %>
+      </li>
+    <% end %>
+  </div>

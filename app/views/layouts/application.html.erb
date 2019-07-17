@@ -14,10 +14,13 @@
     <%= link_to :home do %>
       <div class="navbar-brand">InstagramClone</div>
     <% end %>
-    <% if user_signed_in? %>
-      <%= current_user.email %>
-      <%= current_user.id %>
-    <% end %>
+    <div class="navbar-collapse collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ducmtran/instagram-clone-rails">Github</a>
+        </li>
+      </ul>
+    </div>
     </div>
   </nav>
 

@@ -1,0 +1,9 @@
+<% if user_followed?(profile_id) %>
+  <%= link_to unfollow_path(profile_id), method: :delete, remote: true do %>
+    Unfollow
+  <% end %>
+<% else %>
+  <%= link_to follow_path(profile_id), method: :post, remote: true do %>
+    Follow
+  <% end %>
+<% end %>

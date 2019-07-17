@@ -6,10 +6,9 @@
   <div class="list-group">
     <% @followings.each do |f| %>
       <li class="list-group-item">
-          <%= f.email %>
-          <%= link_to unfollow_path(f.id), method: :delete do %>
-            <div>Unfollow</div>
-          <% end %>
+        <%= link_to view_profile_path(f.id), method: :get do %>
+          <div><%= f.profile.name %></div>
+        <% end %>
       </li>
     <% end %>
   </div>
@@ -18,20 +17,6 @@
     <% @followers.each do |f| %>
       <li class="list-group-item">
           <%= f.email %>
-      </li>
-    <% end %>
-  </div>
-  <br>
-  <div>All users</div>
-  <div class="list-group">
-    <% @all_users.each do |user| %>
-      <li class="list-group-item">
-        <%= link_to view_profile_path(user.id), method: :get do %>
-          <div><%= user.profile.name %></div>
-        <% end %>
-        <%= link_to follow_path(user.id), method: :post do %>
-          <div class="btn btn-sm btn-secondary">Follow</div>
-        <% end %>
       </li>
     <% end %>
   </div>

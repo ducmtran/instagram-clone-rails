@@ -2,7 +2,6 @@ class FollowsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @all_users = User.all
     @user = User.find(params[:id])
 
     @following_count = @user.follow_count 
@@ -16,13 +15,17 @@ class FollowsController < ApplicationController
     user = User.find(current_user.id)
     followed_user = User.find(params[:id])
     user.follow(followed_user)
-    redirect_to follows_path(current_user.id)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy
     user = User.find(current_user.id)
     followed_user = User.find(params[:id])
     user.stop_following(followed_user)
-    redirect_to follows_path(current_user.id)
+    respond_to do |format|
+      format.js
+    end
   end
 end

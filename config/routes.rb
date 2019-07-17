@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/view/:id', to: 'profile#show', as: 'view_profile'
   get '/profile/edit', to: 'profile#edit'
   patch '/profile/update', to: 'profile#update'
+  get '/view_all', to: 'profile#show_all'
 
   #followings
   get '/follows/:id', to: 'follows#show', as: 'follows'

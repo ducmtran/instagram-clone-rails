@@ -4,8 +4,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    current_user.posts.create(caption: post_params[:caption])
-    redirect_to home_path
+    @post = current_user.posts.new(caption: post_params[:caption])
+    if @post.save
+      redirect_to view_profile_path(current_user.id)
+    else
+      @errors = @post.errors.full_messages
+      render :new
+    end
   end
 
   def post_params
@@ -18,12 +23,15 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
-    @post.update(caption: params[:edit_post][:caption])
-    redirect_to home_path
+    if @post.update(caption: params[:post][:caption])
+      redirect_to view_profile_path(current_user.id)
+    else
+      render :edit     
+    end
   end
 
   def destroy
     Post.destroy(params[:id])
-    redirect_to home_path
+    redirect_to view_profile_path(current_user.id)
   end
 end

@@ -6,14 +6,14 @@
   
     <% @all_posts.each do |p| %>
       <div class="card post rounded-sm bg-white">
-          <img class="card-img-top" src="/f87.jpg" alt="">
+          <img class="card-img-top" src="/insta-logo.png" alt="">
           <div class="card-body border-bottom">
             <div class="card-text">
               <span id="like-<%= p.id %>">
                 <%= render 'likes/like_button.html.erb', post_id: p.id %>
               </span>
               <span>
-                <% if self_profile(params[:id]) %>
+                <% if self_profile(params[:id]) %>  
                   <%= link_to edit_post_path(p.id), method: :get do %>
                     edit
                   <% end %>
@@ -26,13 +26,20 @@
             <div class="card-text">
               <span class="font-weight-bold"><%= p.user.profile.handle %></span> <%= p.caption %>
             </div>
+            <div class="card-text" id="comment-<%= p.id %>">
+              <% p.comments.each do |c| %>
+                <div>
+                  <span class="font-weight-bold"><%= current_user.profile.handle %></span> <%= c.text %>
+                </div>
+              <% end %>
+            </div>
             <h6 class="mb-2 text-muted">
-            <% if p.created_at != nil %>
-              <%= distance_of_time_in_words_to_now(p.created_at) %> ago
-            <% end %>
-            </h6>
+              <% if p.created_at != nil %>
+                <%= distance_of_time_in_words_to_now(p.created_at) %> ago
+              <% end %>
+              </h6>
           </div>
-          <%= form_for :comment, url: comments_path(), html: { class: 'input-group' } do |f| %>
+          <%= form_for :comment, url: comments_path(), remote: true, html: { class: 'input-group' } do |f| %>
             <%= f.text_field :text, placeholder: 'Add a comment...', class: 'form-control border-0' %>
             <%= hidden_field_tag :post_id, p.id %>
             <%= f.submit 'Post', class: 'btn' %>

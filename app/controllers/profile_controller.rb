@@ -15,13 +15,17 @@ class ProfileController < ApplicationController
   end
 
   def update
-    @pf = Profile.find_by(user_id: id)
+    @pf = Profile.find_by(user_id: current_user.id)
     @pf.update(handle: pf_params[:handle], name: pf_params[:name], bio: pf_params[:bio])
-    redirect_to home_path
+    redirect_to view_profile_path(current_user.id)
   end
 
   def edit
     @profile = Profile.find_by(user_id: current_user.id)
+  end
+
+  def show_all
+    @all_users = User.all    
   end
 
   protected
